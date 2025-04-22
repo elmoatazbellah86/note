@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note/widgets/custum_search_icon_widget.dart';
+import 'package:note/views/widgets/custum_search_icon_widget.dart';
 
 class CustumAppBar extends StatelessWidget {
   const CustumAppBar({super.key, required this.titel, required this.icon});

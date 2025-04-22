@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:note/cubits/notes_cubit/notes_cubit.dart';
+import 'package:note/model/note_model.dart';
 import 'package:note/views/edit_notes_views.dart';
+//import 'package:note/widgets/const_prmimry.dart';
 
 class NotItem extends StatelessWidget {
-  const NotItem({super.key});
+  const NotItem({Key? key, required this.note}) : super(key: key);
 
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,29 +26,33 @@ class NotItem extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
-          color: Color(0xffFFCC80),
-          borderRadius: BorderRadius.circular(32),
+          color: Colors.blue,
+          // Color(note.color),
+          borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
               title: Text(
-                'Flutter Tibs',
-                style: TextStyle(color: Colors.black, fontSize: 28),
+                note.titel,
+                style: TextStyle(color: Colors.black, fontSize: 26),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: Text(
-                  'Build your career with Motaz mohamed',
+                  note.subTitel,
                   style: TextStyle(
                     color: Colors.black.withOpacity(.6),
-                    fontSize: 20,
+                    fontSize: 18,
                   ),
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                  BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                },
 
                 icon: Icon(
                   FontAwesomeIcons.trash,
@@ -55,9 +64,9 @@ class NotItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 25, top: 16),
               child: Text(
-                'April06, 2025',
+                note.date,
                 style: TextStyle(
-                  color: Colors.black.withOpacity(.4),
+                  color: Colors.grey.withOpacity(.4),
                   fontSize: 16,
                 ),
               ),

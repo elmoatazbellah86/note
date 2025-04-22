@@ -1,28 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:note/widgets/add_note_bottom_sheet.dart';
-import 'package:note/widgets/const_prmimry.dart';
-import 'package:note/widgets/notes_view_bady_widget.dart';
+import 'package:note/views/widgets/add_note_bottom_sheet.dart';
+import 'package:note/views/widgets/const_prmimry.dart';
+import 'package:note/views/widgets/notes_view_bady_widget.dart';
 
-class NotesViews extends StatefulWidget {
+class NotesViews extends StatelessWidget {
   const NotesViews({super.key});
 
   // final double fabSize = 56.0;
 
   @override
-  State<NotesViews> createState() => _NotesViewsState();
-}
-
-class _NotesViewsState extends State<NotesViews> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: NotesViewBadyWidgets(),
+      resizeToAvoidBottomInset: true, //ظبط الحجم ليتناسب مع الصفحه
+
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
 
         onPressed: () {
-          //   showDialog(context: context, builder: builder)
+          //  showDialog(context: context, builder: builder)
           showModalBottomSheet(
+            isScrollControlled: true,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
@@ -34,6 +31,7 @@ class _NotesViewsState extends State<NotesViews> {
         },
         child: Icon(Icons.add, color: Colors.white),
       ),
+      body: NotesViewBadyWidgets(),
     );
   }
 }

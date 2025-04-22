@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note/cubits/notes_cubit/notes_cubit.dart';
 import 'package:note/views/widgets/custum_app_bar.dart';
-import 'package:note/widgets/notes_list_view.dart';
+import 'package:note/views/widgets/notes_list_view.dart';
 
-class NotesViewBadyWidgets extends StatelessWidget {
+class NotesViewBadyWidgets extends StatefulWidget {
   const NotesViewBadyWidgets({super.key});
+
+  @override
+  State<NotesViewBadyWidgets> createState() => _NotesViewBadyWidgetsState();
+}
+
+class _NotesViewBadyWidgetsState extends State<NotesViewBadyWidgets> {
+  @override
+  void initState() {
+    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +25,7 @@ class NotesViewBadyWidgets extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 50),
-          CustumAppBar(titel: 'Note eidt', icon: Icon(Icons.search, size: 35)),
+          CustumAppBar(titel: 'Note Mizo', icon: Icon(Icons.search, size: 35)),
           SizedBox(height: 50),
           Expanded(child: NoteListView()),
         ],
