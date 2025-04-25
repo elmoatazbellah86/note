@@ -7,7 +7,7 @@ import 'package:note/views/edit_notes_views.dart';
 //import 'package:note/widgets/const_prmimry.dart';
 
 class NotItem extends StatelessWidget {
-  const NotItem({Key? key, required this.note}) : super(key: key);
+  const NotItem({super.key, required this.note});
 
   final NoteModel note;
   @override
@@ -18,7 +18,7 @@ class NotItem extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return EditNotesViews();
+              return EditNotesViews(note: note);
             },
           ),
         );
@@ -66,7 +66,7 @@ class NotItem extends StatelessWidget {
               child: Text(
                 note.date,
                 style: TextStyle(
-                  color: Colors.grey.withOpacity(.4),
+                  color: Colors.black.withOpacity(.4),
                   fontSize: 16,
                 ),
               ),

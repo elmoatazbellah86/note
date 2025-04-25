@@ -25,7 +25,7 @@ class _NotesViewBadyWidgetsState extends State<NotesViewBadyWidgets> {
       child: Column(
         children: [
           SizedBox(height: 50),
-          CustumAppBar(titel: 'Note Mizo', icon: Icon(Icons.search, size: 35)),
+          CustumAppBar(titel: 'Note Mizo', icon: Icons.search),
           SizedBox(height: 50),
           Expanded(child: NoteListView()),
         ],
