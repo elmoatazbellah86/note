@@ -26,8 +26,7 @@ class NotItem extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
-          color: Colors.blue,
-          // Color(note.color),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(

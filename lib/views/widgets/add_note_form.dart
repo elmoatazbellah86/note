@@ -44,6 +44,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           SizedBox(height: 50),
           CloroListView(),
+          SizedBox(height: 50),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustumButton(
