@@ -9,3 +9,10 @@ List<Color> kColors = const [
   Color(0xff537D8D),
   Color(0xff482C3D),
 ];
+List<Color> VClors = const [
+  Color(0xff8DA1B9),
+  Color(0xff95ADB6),
+  Color(0xffCBB3BF),
+  Color(0xffDBC7BE),
+  Color(0xffEF959C),
+];
